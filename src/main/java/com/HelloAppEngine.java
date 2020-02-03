@@ -7,32 +7,36 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+
 import com.google.gson.Gson;
 
-@WebServlet(
-    name = "HelloAppEngine",
-    urlPatterns = {"/hello"}
-)
-public class HelloAppEngine extends HttpServlet {
+@RestController
+@RequestMapping("/hello")
+public class HelloAppEngine{
 
-  @Override
-  public void doGet(HttpServletRequest request, HttpServletResponse response) 
+  @RequestMapping(value="/getItMan",method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
+  public String getMePlease(HttpServletRequest request, HttpServletResponse response) 
       throws IOException {
 
-    response.setContentType("text/plain");
-    response.setCharacterEncoding("UTF-8");
-
-    response.getWriter().print("Hello App Engine - Class SE!\r\n");
+    //response.setContentType("text/plain");
+    //response.setCharacterEncoding("UTF-8");
+    //response.getWriter().print("Hello App Engine - Class SE!\r\n");
+    return "Hello App Engine - Class SE!\r\n";
 
   }
   
-  @Override
-  public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+  @RequestMapping(value="/postItLocalSearch",method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
+  public String postMePlease(HttpServletRequest request, HttpServletResponse response) throws IOException {
 	  Gson gson = new Gson();
 	  String test = "Foooooo";
 	  String studentName = request.getParameter("student1");
 	  String outPut = "This is an example output from server";
-	  response.getWriter().print(gson.toJson(outPut));
+	  return gson.toJson(outPut);
+	  
 	  
   }
   

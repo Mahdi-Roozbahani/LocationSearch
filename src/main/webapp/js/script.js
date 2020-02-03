@@ -3,10 +3,9 @@ $(document).ready(function() {
 
 	$.ajax({
 		type: 'POST',
-		url: '/hello',
+		contentType : "application/json",
+		url: '/hello/postItLocalSearch',
 		data: {'student1': 'Mahdi' },
-		dataType: 'json',// what we expect from server
-		async: true, // what if the false one
 		success: function(dataFromServer) {
 			//var result = JSON.parse(dataFromServer);
 			$("#firstDivID").text(dataFromServer);

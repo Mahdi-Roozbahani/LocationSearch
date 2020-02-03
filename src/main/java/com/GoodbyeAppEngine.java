@@ -7,28 +7,32 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+
 import com.google.gson.Gson;
-@WebServlet(
-	    name = "GoodbyeAppEngine",
-	    urlPatterns = {"/goodbye"}
-	)
 
-public class GoodbyeAppEngine extends HttpServlet {
+@RestController
+@RequestMapping("/goodbye")
+public class GoodbyeAppEngine {
 
-  @Override
-  public void doGet(HttpServletRequest request, HttpServletResponse response) 
+  @RequestMapping(value="/getItGoodbye")
+  public String goodByeGet(HttpServletRequest request, HttpServletResponse response) 
       throws IOException {
 	Gson gson = new Gson();
-    response.setContentType("text/plain");
-    response.setCharacterEncoding("UTF-8");
-
-    response.getWriter().print("Goodbye App Engine - Class SE!\r\n");
+    //response.setContentType("text/plain");
+    //response.setCharacterEncoding("UTF-8");
+    //response.getWriter().print("Goodbye App Engine - Class SE!\r\n");
+    return "Goodbye App Engine - Class SE!\r\n";
 
   }
   
-  @Override
-  public void doPost(HttpServletRequest request, HttpServletResponse response) {
+  @RequestMapping(value="/postItGoodBye",method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
+  public String doPost(HttpServletRequest request, HttpServletResponse response) {
 	  
+	  return "";
   }
   
   
