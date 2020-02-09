@@ -52,7 +52,8 @@ public class HelloAppEngine{
 
 	  return gson.toJson(gson.toJson(newUser));
 	  
-	  // Checkout your database http://localhost:8080/_ah/admin
+	  // Checkout your database 
+	  //                              http://localhost:8080/_ah/admin
 	  
 	  
   }
