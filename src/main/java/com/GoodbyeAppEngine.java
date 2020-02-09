@@ -18,7 +18,7 @@ import com.google.gson.Gson;
 @RequestMapping("/goodbye")
 public class GoodbyeAppEngine {
 
-  @RequestMapping(value="/getItGoodbye")
+  @RequestMapping(value="/getItGoodbye",method = RequestMethod.GET)
   public String goodByeGet(HttpServletRequest request, HttpServletResponse response) 
       throws IOException {
 	Gson gson = new Gson();

@@ -4,9 +4,16 @@
   <threadsafe>true</threadsafe>
   <sessions-enabled>false</sessions-enabled>
   <runtime>java8</runtime>
+  <application>LocalSearchMahdi</application>
+  <url-stream-handler>urlfetch</url-stream-handler>
+  
+ <!--  <async-session-persistence enabled=true/> -->
+  <instance-class>f1</instance-class>
 
   <system-properties>
     <property name="java.util.logging.config.file" value="WEB-INF/logging.properties"/>
   </system-properties>
+  
+  <use-google-connector-j>true</use-google-connector-j>
 
 </appengine-web-app>
