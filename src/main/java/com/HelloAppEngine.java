@@ -25,10 +25,15 @@ import com.google.gson.Gson;
 @RequestMapping("/hello")
 public class HelloAppEngine{
 
+	
+  public String getTest() {
+	    return "Hello App Engine - Class SE!";
+  }
+  
   @GetMapping("getItMan")
   public String getMePlease(HttpServletRequest request, HttpServletResponse response) 
       throws IOException {
-    return "Hello App Engine - Class SE!\r\n";
+    return "Hello App Engine - Class SE!";
 
   }
   
@@ -53,9 +58,7 @@ public class HelloAppEngine{
 	  return gson.toJson(gson.toJson(newUser));
 	  
 	  // Checkout your database 
-	  //                              http://localhost:8080/_ah/admin
-	  
-	  
+	  // http://localhost:8080/_ah/admin
   }
   
 }

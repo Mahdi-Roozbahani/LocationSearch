@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -31,9 +32,24 @@ public class GoodbyeAppEngine {
   
   @RequestMapping(value="/postItGoodBye",method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
   public String doPost(HttpServletRequest request, HttpServletResponse response) {
-	  
-	  return "";
+	  String test = request.getParameter("getMeBody");
+	  String byeMessage = "Bbye AppEngine";
+	  return byeMessage;
+  }  
+  
+  @RequestMapping(value="/byeTest",method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
+  public String doNewPost(@RequestBody String comingPost) {
+	  String byeMessage = comingPost;
+	  return byeMessage;
   }
+  
+  @RequestMapping(value="/byeMahdiTest",method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
+  public String mahdiPost(@RequestBody String comingPost) {
+	  String byeMessage = comingPost;
+	  return byeMessage;
+  }
+  
+  
   
   
   
