@@ -23,6 +23,9 @@ public class GoodbyeAppEngine {
   public String goodByeGet(HttpServletRequest request, HttpServletResponse response) 
       throws IOException {
 	Gson gson = new Gson();
+	String randString = "some random stuff";
+	String test = gson.toJson(randString);
+	String random = aRandomMethod();
     //response.setContentType("text/plain");
     //response.setCharacterEncoding("UTF-8");
     //response.getWriter().print("Goodbye App Engine - Class SE!\r\n");
@@ -47,6 +50,10 @@ public class GoodbyeAppEngine {
   public String mahdiPost(@RequestBody String comingPost) {
 	  String byeMessage = comingPost;
 	  return byeMessage;
+  }
+  
+  String aRandomMethod() {
+	  return "nothing";
   }
   
   
