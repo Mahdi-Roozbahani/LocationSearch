@@ -18,6 +18,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
 
 public class HelloAppEngineTest {
+	// Base Url
     private String base_url;
 
     // Setup environment - called before any test method
